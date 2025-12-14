@@ -1,12 +1,8 @@
-/* =========================
-   GLOBAL STYLES
-   ========================= */
 :root {
   --beige: #f5efe6;
-  --light-pink: #f6d6df;
-  --soft-pink: #fdecef;
+  --pink: #f6d6df;
   --accent: #d9a5b3;
-  --text-dark: #3d3d3d;
+  --text: #3d3d3d;
 }
 
 * {
@@ -17,205 +13,100 @@
 
 body {
   font-family: 'Montserrat', sans-serif;
-  background: linear-gradient(120deg, var(--beige), var(--soft-pink));
-  color: var(--text-dark);
-  scroll-behavior: smooth;
+  background: linear-gradient(120deg, var(--beige), var(--pink));
+  color: var(--text);
 }
 
-/* =========================
-   HEADER / NAV
-   ========================= */
 header {
+  background: rgba(255,255,255,0.6);
+  backdrop-filter: blur(10px);
   position: sticky;
   top: 0;
-  z-index: 1000;
-  background: rgba(255, 255, 255, 0.6);
-  backdrop-filter: blur(12px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
 }
 
 nav {
   max-width: 1200px;
   margin: auto;
-  padding: 20px 40px;
+  padding: 20px;
   display: flex;
   justify-content: space-between;
-  align-items: center;
-}
-
-nav h1 {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.8rem;
 }
 
 nav ul {
   list-style: none;
   display: flex;
-  gap: 25px;
+  gap: 20px;
 }
 
-nav ul li a {
+nav a {
   text-decoration: none;
-  color: var(--text-dark);
-  font-weight: 500;
+  color: var(--text);
   position: relative;
-  padding-bottom: 4px;
 }
 
-nav ul li a::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: 0;
+nav a::after {
+  content: '';
   width: 0;
   height: 2px;
   background: var(--accent);
-  transition: width 0.3s ease;
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  transition: 0.3s;
 }
 
-nav ul li a:hover::after {
+nav a:hover::after {
   width: 100%;
 }
 
-/* =========================
-   SECTIONS
-   ========================= */
-section {
-  max-width: 1200px;
-  margin: auto;
-  padding: 80px 40px;
-  animation: fadeUp 1s ease forwards;
-}
-
-h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: 2.3rem;
-  margin-bottom: 20px;
-}
-
-p {
-  line-height: 1.7;
-  max-width: 700px;
-}
-
-/* =========================
-   HERO
-   ========================= */
 .hero {
-  min-height: 80vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  padding: 120px 40px;
+  text-align: center;
 }
 
-.hero h2 {
-  font-size: 3rem;
-}
-
-/* =========================
-   CARDS
-   ========================= */
 .card {
-  background: rgba(255, 255, 255, 0.65);
+  max-width: 900px;
+  margin: 80px auto;
+  background: rgba(255,255,255,0.7);
   padding: 60px;
   border-radius: 25px;
-  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
 }
 
-/* =========================
-   BUTTONS
-   ========================= */
 .btn {
   display: inline-block;
-  margin-top: 25px;
-  padding: 14px 34px;
+  margin-top: 30px;
+  padding: 14px 32px;
   border-radius: 40px;
-  background: linear-gradient(135deg, var(--light-pink), var(--accent));
+  background: linear-gradient(135deg, var(--pink), var(--accent));
   color: white;
   text-decoration: none;
-  font-weight: 500;
-  transition: all 0.35s ease;
+  transition: 0.3s;
 }
 
 .btn:hover {
   transform: translateY(-5px);
-  box-shadow: 0 18px 35px rgba(217, 165, 179, 0.45);
+  box-shadow: 0 15px 30px rgba(217,165,179,0.5);
 }
 
-/* =========================
-   PROJECT GRID
-   ========================= */
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 30px;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
   margin-top: 40px;
 }
 
-.project-card {
-  background: rgba(255, 255, 255, 0.75);
-  border-radius: 20px;
-  padding: 30px;
-  text-decoration: none;
-  color: var(--text-dark);
-  transition: all 0.4s ease;
-}
-
-.project-card:hover {
-  transform: translateY(-12px) scale(1.02);
-  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.12);
-}
-
-/* =========================
-   IMAGE HOVER EFFECT
-   ========================= */
 .project-image {
   width: 100%;
   border-radius: 15px;
-  transition: transform 0.5s ease;
+  transition: 0.4s;
 }
 
 .project-image:hover {
   transform: scale(1.05);
 }
 
-/* =========================
-   FOOTER
-   ========================= */
 footer {
   text-align: center;
   padding: 40px;
-  font-size: 0.9rem;
 }
-
-/* =========================
-   ANIMATIONS
-   ========================= */
-@keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(40px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* =========================
-   RESPONSIVE
-   ========================= */
-@media (max-width: 768px) {
-  nav ul {
-    gap: 15px;
-  }
-
-  .hero h2 {
-    font-size: 2.3rem;
-  }
-
-  .card {
-    padding: 40px;
-  }
-}
-
