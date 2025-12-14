@@ -11,6 +11,21 @@
   box-sizing: border-box;
 }
 
+.hero-image {
+  width: 200px;          /* size of the image */
+  height: auto;           /* maintain aspect ratio */
+  border-radius: 50%;     /* makes it circular */
+  display: block;
+  margin: 20px auto;      /* centers the image */
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  transition: transform 0.3s;
+}
+
+.hero-image:hover {
+  transform: scale(1.05); /* subtle zoom on hover */
+}
+
+
 body {
   font-family: 'Montserrat', sans-serif;
   background: linear-gradient(120deg, var(--beige), var(--pink));
